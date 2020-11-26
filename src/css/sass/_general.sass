@@ -51,6 +51,7 @@ $blue: #0033a0
 // =========== End ===========
 
 input,textarea
+  color: $blue
   &:focus
     outline: none
 .button
@@ -77,7 +78,7 @@ body
   background: url(../img/bg2.png) center / cover 
   // background: url(../img/bgitems/brillo2.png) no-repeat left top / 10px , url(../img/bgitems/brillo2.png) no-repeat left top / 10px , url(../img/bgitems/brillo.png) no-repeat left top / 30px , url(../img/bgitems/star2.svg) no-repeat left top / 30px , url(../img/bgitems/campanas.svg) no-repeat left top / 100px , url(../img/bgitems/copo2.svg) no-repeat left top / 100px , url(../img/bgitems/estrella.svg) no-repeat left top / 100px, url(../img/bg.png) left top / cover 
 section.content
-  height: calc(100vh - 56px)
+  min-height: calc(100vh - 56px)
   padding-bottom: 70px 
   display: flex
 .logo
@@ -139,13 +140,21 @@ header
   font-size: 20px
   .item
     padding: 0
+    @media screen and ( max-width: 768px )
+      padding-top: 30px
+      padding-bottom: 30px
+    &:nth-child(odd)
+      .items
+        border-left: solid 2px $yellow
     &:nth-child(2)
       .items
         border-left: none 
   .items
     padding: 0 15px
     width: 100%
-    border-left: solid 2px $yellow
+    @media screen and ( min-width: 768px )
+      border-left: solid 2px $yellow
+      
   img
     max-width: 110px
   p
@@ -159,6 +168,8 @@ header
     line-height: 30px
     font-family: $BarlowCondensed-SemiBold
     margin-top: 40px
+    @media screen and ( max-width: 768px )
+      margin-top: 100px
   form
     width: 100%
     position: relative
@@ -166,6 +177,10 @@ header
     padding-right: 30px 
     max-width: 700px
     background: url(../img/bg-form.svg) no-repeat center center / contain
+    @media screen and ( max-width: 768px )
+      background: white url(../img/bg-form.svg) no-repeat center center / contain
+      border-radius: 20px
+      padding: 50px 15px
     > .button
       font-size: 20px 
       position: absolute
@@ -193,6 +208,8 @@ header
     line-height: 30px
     font-size: 20px
     max-width: 500px
+    @media screen and ( max-width: 768px )
+      display: inline-block
     strong
       font-family: $BarlowCondensed-Bold
     &-2
@@ -204,6 +221,8 @@ header
     background: url(../img/items/uno.svg) no-repeat left 15px / 30px
     &:after
       left: calc( 50% - 60px )
+      @media screen and ( max-width: 768px )
+        left: 50%
     small
       color: $blue
       font-size: 10px 
@@ -212,6 +231,12 @@ header
       color: $blue
       font-size: 20px
       min-width: 30px
+      padding-right: 0px
+      @media screen and ( max-width: 768px )
+        min-width: 50px
+        padding-right: 10px
+        text-align: right
+
     input
       background: url(../img/form/input.svg) no-repeat center center / contain
       border: none
@@ -219,6 +244,8 @@ header
       padding: 5px 30px
   .foto
     max-width: calc(100% - 100px)
+    @media screen and ( max-width: 768px )
+      max-width: 100%
     .button
       background: #00aec7
       border-radius: 5px
@@ -230,11 +257,15 @@ header
       border: dashed 2px #00aec7
       border-radius: 10px
       padding: 30px
-      margin-left: 50px
       align-items: center
       display: flex
       justify-content: space-around
       max-width: 300px
+      margin-left: 50px
+      @media screen and ( max-width: 768px )
+        margin-left: 0px
+        max-width: 100%
+        width: 100%
     label
       margin-bottom: 0
       font-size: 14px
@@ -243,6 +274,8 @@ header
   .mensaje
     max-width: calc(100% - 100px)
     text-align: center
+    @media screen and ( max-width: 768px )
+      max-width: 100%
     img
       cursor: pointer
       max-width: 200px
@@ -280,6 +313,9 @@ header
     background: $blue
     border: solid 5px $yellow
     background: radial-gradient(circle, $blue 65%, transparent 65%)
+    @media screen and ( max-width: 768px )
+      width: 400px
+      height: 400px
     .mensaje-pop
       background: url(../img/items/face.svg) no-repeat left top / 60px
       margin-top: 20px
@@ -324,6 +360,14 @@ header
   .close
     top: 0
     right: -40px
+    @media screen and ( max-width:  768px )
+      top: -40px
+      right: 50%
+      transform: translateX(50%)
+  .modal-dialog
+    margin-top: 0px
+    @media screen and ( max-width:  768px )
+      margin-top: 60px
   .modal-body
     background: url(../img/bgprev.png) no-repeat left top / cover
     .options
@@ -384,17 +428,23 @@ header
     padding: 61px 80px 30px
     text-align: center
     min-height: 650px
+    position: relative
+    @media screen and ( max-width: 768px )
+      padding: 61px 30px 30px
+    .header
+      position: absolute
+      top: 0
+      left: 0
+      padding: 15px
+      width: 100%
+      img
+        max-width: 100px
     .text
       p
-        padding-top: 20px
+        padding-top: 40px
         margin-bottom: 0
         font-family: $BarlowCondensed-Regular
         line-height: 16px
-    &.op1
-      background: url(../img/items/SVG/bg-Yb.svg) no-repeat left -10px / contain, url(../img/items/SVG/bgYb.png) no-repeat left top / cover
-      .title
-        h2,.hast
-          color: $blue
     .img
       background: white url(../img/items/SVG/bg-img.svg) no-repeat left -10px / cover
       padding: 20px 20px 10px
@@ -441,3 +491,32 @@ header
         height: 90px
         left: -20px
         background: url(../img/items/SVG/regalo.svg) no-repeat center / cover
+.content-card
+  &#op
+    &1
+
+      background: url(../img/items/SVG/bg-Yb.svg) no-repeat left -10px / contain, url(../img/items/SVG/bgYb.png) no-repeat left top / cover
+      .title
+        h2,.hast
+          color: $blue
+    &2
+      background: url(../img/items/SVG/bgB.svg) no-repeat left -10px / contain, url(../img/items/SVG/bgB.png) no-repeat left top / cover
+      .title
+        h2,.hast
+          color: white
+    &3
+      background: url(../img/items/SVG/byB.svg) no-repeat left -10px / contain, url(../img/items/SVG/BgY.png) no-repeat left top / cover
+      .title
+        h2,.hast
+          color: $blue
+#end
+  h2
+    font-size: 80px
+    font-family: $BarlowCondensed-Bold
+  @media screen and ( max-width:  768px )
+    h2  
+      font-size: 50px
+    img 
+      max-width: 80%
+      display: block
+      margin: 0 auto

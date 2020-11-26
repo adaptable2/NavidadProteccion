@@ -5,59 +5,59 @@ block title
 
 block content
   include layouts/header
-  section#home.content.align-items-center
+  section(data-aos="fade-down")#home.content.align-items-center
     .container
       .row.justify-content-center.align-items-center
-        .col-12.text-center.color-white
+        .col-12.text-center.color-white(data-aos="fade-up")
           img.mb-3.logo.img-fluid(src="img/logo.svg", alt="")
           p.pb-5 Presenta:
           img.logo2.img-fluid(src="img/logo1.svg", alt="")
   section#video.content.align-items-center
     .container
       .row.align-items-center.justify-content-center
-        .col-md-3
+        .col-md-3(data-aos="fade-right")
           h2.color-yellow CUIDARNOS ES EL MEJOR REGALO PARA ESTA NAVIDAD
           p.color-white 
             strong MIRA EL VIDEO 
             | y encuentra más razones para sorprender a los que más quieres en esta Navidad.
-        .col-md-7
+        .col-md-7(data-aos="fade-left")
           .video-responsive
             iframe(src="https://www.youtube.com/embed/fWmO9bHU_fg" frameborder="0" allowfullscreen)
-  section#items.content.align-items-center
+  section(data-aos="fade-up")#items.content.align-items-center
     .container
       .row.align-items-center.justify-content-center
         .col-md-12.color-white.text-center.pb-5
           h2 Tu Kit de Navidad 
           p Descarga nuestro kit para vivir con los que más quieres una Navidad especial.
-        .col-md-2.item.d-flex.flex-wrap.justify-content-center
+        .col-6.col-md-2.item.d-flex.flex-wrap.justify-content-center
           .items.text-center
-            img.w-100(src="img/items/item1.svg", alt="")
-            p.mt-3 Novena 
+            img(data-aos="fade-down").w-100(src="img/items/item1.svg", alt="")
+            p(data-aos="fade-up").mt-3 Novena 
               strong aguinaldos
-          a.button(href="./PDF/Novena-2020.pdf" download target='_blank') Descargar
-        .col-md-2.item.d-flex.flex-wrap.justify-content-center
+          a.button(href="./PDF/Novena-2020.pdf" download target='_blank' data-aos="zoom-in") Descargar
+        .col-6.col-md-2.item.d-flex.flex-wrap.justify-content-center
           .items.text-center
-            img.w-100(src="img/items/item2.svg", alt="")
-            p.mt-3 Tarjetas
+            img(data-aos="fade-down").w-100(src="img/items/item2.svg", alt="")
+            p(data-aos="fade-up").mt-3 Tarjetas
               strong de regalo
-          a.button(href="./PDF/Tarjetas.Navidad.pdf" download target='_blank') Descargar
-        .col-md-2.item.d-flex.flex-wrap.justify-content-center
+          a.button(href="./PDF/Tarjetas.Navidad.pdf" download target='_blank' data-aos="zoom-in") Descargar
+        .col-6.col-md-2.item.d-flex.flex-wrap.justify-content-center
           .items.text-center
-            img.w-100(src="img/items/item3.svg", alt="")
-            p.mt-3 Lista de reproducción
+            img(data-aos="fade-down").w-100(src="img/items/item3.svg", alt="")
+            p(data-aos="fade-up").mt-3 Lista de reproducción
               strong Navideña
-          a.button(href="https://open.spotify.com/playlist/5bL9euYbe00LOU78b5MHae") Ir
-        .col-md-2.item.d-flex.flex-wrap.justify-content-center
+          a.button(href="https://open.spotify.com/playlist/5bL9euYbe00LOU78b5MHae" data-aos="zoom-in") Ir
+        .col-6.col-md-2.item.d-flex.flex-wrap.justify-content-center
           .items.text-center
-            img.w-100(src="img/items/item4.svg", alt="")
-            p.mt-3 Tarjeta 
+            img(data-aos="fade-down").w-100(src="img/items/item4.svg", alt="")
+            p(data-aos="fade-up").mt-3 Tarjeta 
               strong Personalizable
-          a.button(href="") Crear
+          a.button(href="" data-aos="zoom-in") Crear
   section#form.content.align-items-center
     .container
       .row
         .col-12
-          form.m-auto.d-block(action="", method="post")
+          form(data-aos="fade-up").m-auto.d-block(action="", method="post")
             .items.inputs
               .group.d-inline-block
                 label(for="para") Para:
@@ -88,12 +88,22 @@ block content
           p.text-center.cierre
             span.color-yellow.d-block Demuéstrales que cuidándote hoy, pronto 
             | vivirán de nuevo los mejores recuerdos.
+  section#end.content.align-items-center
+    .container
+      .row.justify-content-center
+        .col-md-8
+          img(src="img/logo.svg", alt="" data-aos="fade-up")
+          h2(data-aos="fade-up").pt-4.text-center La vida desde hoy
+  
   .modal.fade#previa(tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true")
     .modal-dialog(role="document")
       .modal-content
         form.modal-body
           .close( type="button"  data-dismiss="modal" aria-label="Close") 
-          .content-card.op1
+          .content-card#op1
+            .header.d-flex.justify-content-between
+              img(src="img/logo1.svg", alt="")
+              img(src="img/logo.svg", alt="")
             .title
               h2 Mamá
               p.hast #cuidarteesmiregalo
@@ -112,11 +122,11 @@ block content
             .colors
               p Opciones de 
                 span plantilla:
-              .option.option-1.active
+              .option#op1.option-1.active
                 .color
-              .option.option-2
+              .option#op2.option-2
                 .color
-              .option.option-3
+              .option#op3.option-3
                 .color
             button.button Enviar
   .modal.fade#mensajePop(tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true")
