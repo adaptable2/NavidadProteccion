@@ -30,14 +30,14 @@ class GetImage extends Controller
 
         // $img = new Imagen;
 		// $img->correo_remitente = $remitente->correo;
-        // $img->path = $request->get('img');
+        //$img->path = $request->get('img');
         // $img->save();
 
-		// Mail::to("kmilo-gutierrez@hotmail.com")->send(new SendUserCard($img->path));
+		Mail::to("kmilo-gutierrez@hotmail.com")->send(new SendUserCard($request->get('img')));
 
 
         return response()->json([
-			'data' => $request->all()
+			'data' => $request->get('img')
         ]);
     }
 }

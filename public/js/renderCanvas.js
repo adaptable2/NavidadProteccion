@@ -1,10 +1,25 @@
-document.getElementById("btn-card").addEventListener("click", function(e) {
+
+
+document.getElementById("preview-btn").addEventListener("click", function(e) {
+    e.preventDefault();
+	
+	document.getElementById("mensaje-formulario").innerHTML = "";
+
+});
+
+document.getElementById("btn-enviar").addEventListener("click", function(e) {
     e.preventDefault();
 
-    html2canvas(document.getElementById("btn-card"), {
-        useCORS: true
+	document.getElementById("btn-enviar").disabled = true;
+	document.getElementById("btn-enviar").style.background = '#000000';
+
+	window.scrollTo(0, 0);
+    html2canvas(document.querySelector(".content-card"), {
+        useCORS: true,
+        logging: true,
+        letterRendering: 1
     }).then(canvas => {
-        var dataURL = canvas.toDataURL("image/jpeg");
+        var dataURL = canvas.toDataURL("image/jpeg", 1.0);
         var message = document.querySelector("#mensaje").value;
         var nombreRemitente = document.querySelector("#de").value;
         var nombreDestinatario = document.querySelector("#para").value;
@@ -22,7 +37,15 @@ document.getElementById("btn-card").addEventListener("click", function(e) {
     });
 });
 
-function SendInfo(img, nombreRemitente, message, nombreDestinatario, mailDestinatario) {
+
+
+function SendInfo(
+    img,
+    nombreRemitente,
+    message,
+    nombreDestinatario,
+    mailDestinatario
+) {
     let url = "/receiveImage";
     let token = document
         .querySelector('meta[name="csrf-token"]')
@@ -50,11 +73,16 @@ function SendInfo(img, nombreRemitente, message, nombreDestinatario, mailDestina
             //  document.querySelector(
             //      ".img-send"
             //  ).innerHTML = `<img src="${data.img.img}" alt=""/>`;
-            console.log(data.data.img);
+            console.log(data.data);
+
+			setTimeout(() =>{
+			document.getElementById("btn-enviar").disabled = false;
+
+				document.getElementById("btn-enviar").style.background =
+                    "#ffffff";
+			}, 2000)
         })
         .catch(function(error) {
             console.log(error);
         });
 }
-
-
