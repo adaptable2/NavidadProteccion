@@ -86,7 +86,7 @@
                 <div class="group d-inline-block">
                   <label for="para">Para:</label>
                   <div class="d-inline-block"><small class="d-block">Nombre Máximo 12 caracteres</small>
-                    <input id="para" type="text" name="para">
+                    <input id="para" type="text" name="para" onkeydown="limit(this,12);" onkeyup="limit(this,12);">
                   </div>
                 </div>
                 <div class="group d-inline-block">
@@ -96,14 +96,15 @@
                 <div class="group d-inline-block">
                   <label for="de">De:</label>
                   <div class="d-inline-block"><small class="d-block">Nombre Máximo 12 caracteres</small>
-                    <input id="de" type="text" name="de">
+                    <input id="de" type="text" name="de" onkeydown="limit(this,12);" onkeyup="limit(this,12);">
                   </div>
                 </div>
               </div>
               <h2 class="title title-2">Sube <strong>tu foto</strong></h2>
               <div class="items foto">
                 <div class="content">
-                  <input class="d-none inputfile" type="file" name="file" id="file"><img src="img/form/camara.svg" alt="">
+                  <input class="d-none inputfile" type="file" name="file" id="file">
+				  <img id="selected-image" class="selected-image" src="img/form/camara.svg" alt="familyImage">
                   <label class="button" for="file">Cargar una imagen</label>
                 </div>
               </div>
@@ -125,24 +126,22 @@
         </div>
       </div>
     </section>
-    <div class="modal fade" id="previa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" id="previa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form class="modal-body">
             <div class="close" type="button" data-dismiss="modal" aria-label="Close"> </div>
             <div class="content-card" id="op1">
-              <div class="header d-flex justify-content-between mm">
-				  {{-- <img src="img/logo1.svg" alt=""> --}}
-				  <h3 class="txt-cuidarte">#<span>Cuidarte</span>Es<span>Mi</span>Regalo</h3>
-				  {{-- <img  src="img/logo.svg" alt=""> --}}
-				  <h3 class="txt-proteccion" >Proteccion</h3>
-			  </div>
+				<img class="decoration p1" width="100%" src="./img/items/SVG/bg-Yb.svg" alt="">
+				<img class="decoration p2" src="./img/items/SVG/bgB.svg" alt="">
+				<img class="decoration p3" src="./img/items/SVG/byB.svg" alt="">
+              <div class="header d-flex justify-content-between"><img src="img/logo1.svg" alt=""><img src="img/logo.svg" alt=""></div>
               <div class="title">
                 <h2>Mamá</h2>
                 <p class="hast">#cuidarteesmiregalo</p>
                 <p>para esta <strong>navidad</strong></p>
               </div>
-              <div class="img"><img class="w-100" src="https://picsum.photos/id/237/600/720" alt="">
+              <div class="img"><img class="w-100 selected-image" src="https://picsum.photos/id/237/600/720" alt="">
                 <div class="bota"></div>
                 <div class="text"> 
                   <p>Att: <span class="name">Camilo</span></p>
@@ -150,7 +149,7 @@
                 <div class="regalo"></div>
               </div>
               <div class="text">
-                <p id="mensaje-formulario"></p>
+                 <p id="mensaje-formulario"></p>
               </div>
             </div>
             <div class="options">
@@ -166,7 +165,7 @@
                   <div class="color"></div>
                 </div>
               </div>
-              <button class="button" id="btn-enviar">Enviar</button>
+              <button class="button" id="btn-enviar" >Enviar</button>
             </div>
           </form>
         </div>
@@ -180,8 +179,8 @@
             <p>Escribe tu mensaje<span class="d-block">(Longitud maxima 250 caracteres) </span></p>
             <div class="mensaje-pop">
               <div class="content">
-                <textarea id="mensaje" name="mensaje"></textarea>
-                <button class="enviar"></button>
+                <textarea id="mensaje" name="mensaje" onkeydown="limit(this,250);" onkeyup="limit(this,250);"></textarea>
+                <button class="enviar" data-dismiss="modal" aria-label="Close"></button>
               </div>
             </div>
           </div>

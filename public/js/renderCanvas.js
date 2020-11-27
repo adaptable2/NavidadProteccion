@@ -3,15 +3,20 @@
 document.getElementById("preview-btn").addEventListener("click", function(e) {
     e.preventDefault();
 	
-	document.getElementById("mensaje-formulario").innerHTML = "";
+	if (document.querySelector("#mensaje").value !== "") {
+		document.getElementById("mensaje-formulario").innerHTML = document.querySelector("#mensaje").value;
+    }else{
+		document.getElementById("mensaje-formulario").innerHTML = "";
+	}
+
 
 });
 
 document.getElementById("btn-enviar").addEventListener("click", function(e) {
     e.preventDefault();
 
-	document.getElementById("btn-enviar").disabled = true;
-	document.getElementById("btn-enviar").style.background = '#000000';
+	// document.getElementById("btn-enviar").disabled = true;
+	// document.getElementById("btn-enviar").style.background = '#000000';
 
 	window.scrollTo(0, 0);
     html2canvas(document.querySelector(".content-card"), {
@@ -27,13 +32,13 @@ document.getElementById("btn-enviar").addEventListener("click", function(e) {
 
         console.log(dataURL);
 
-        // SendInfo(
-        //     dataURL,
-        //     nombreRemitente,
-        //     message,
-        //     nombreDestinatario,
-        //     mailDestinatario
-        // );
+        SendInfo(
+            dataURL,
+            nombreRemitente,
+            message,
+            nombreDestinatario,
+            mailDestinatario
+        );
     });
 });
 
@@ -75,12 +80,12 @@ function SendInfo(
             //  ).innerHTML = `<img src="${data.img.img}" alt=""/>`;
             console.log(data.data);
 
-			setTimeout(() =>{
-			document.getElementById("btn-enviar").disabled = false;
+			// setTimeout(() =>{
+			// document.getElementById("btn-enviar").disabled = false;
 
-				document.getElementById("btn-enviar").style.background =
-                    "#ffffff";
-			}, 2000)
+			// 	document.getElementById("btn-enviar").style.background =
+            //         "#ffffff";
+			// }, 2000)
         })
         .catch(function(error) {
             console.log(error);
